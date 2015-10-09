@@ -15,11 +15,7 @@ null :: Foldable t => t a -> Bool
 
 --pembatas
 
-take:: Int -> [a] -> [a]
-take 1 [1]
-take 2 [2]
-take 2 [1,2] = [1,2]
-take 3 [1,2,3,4] = [1,2,3,4]
+take' x (xs) = [x]
 
 --pembatas
 
