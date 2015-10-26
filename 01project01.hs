@@ -4,41 +4,50 @@ import Data.List
 -- I'm so sorry before if i didn't add ' after the function, it cause i used Heat 
 -- 1.a
 
-null [] = True
-null Num = False
-null [Num] = False
-null (Num) = False
-null Char = False
-null [Char] = False
-null (Char) = False
-null :: Foldable t => t a -> Bool
+null' [] = True
+null' _ = False
 
 --pembatas
 
-take' x (xs) = [x]
+take' x [] = []
+take' x (a:as)
+  |x <= 0 = y
+  |otherwise = a (take' a (x-1) as )
 
 --pembatas
 
 drop x = x
 --pembatas
 
-fst' x = x
+fst' (x,y) = x
 
 --pembatas
 
-snd' x = x
+snd' (x,y) = y
 
 --pembatas
 
-map' x = x
+map' f [] = []
+map' f (x:xs) = [f x] ++ map f (xs)
+
+
 
 --pembatas
 
-filter' x = x
+filter' f [] = []
+filter' f (x:xs) 
+  | (f x) = x : (filter' f xs) 
+  | otherwise = (filter' f xs)
+
 
 --pembatas
 
-delete' x = x
+delete' a [] = []
+delete' a (x:xs)
+  |a == x = xs
+  |otherwise = x : (delete' a xs)
+
+
 
 --pembatas
 
@@ -74,7 +83,11 @@ scanl1' x = x
 
 --pembatas
 
-elem' x = x
+elem' a [] = False
+elem' a (x:xs)
+  | a == x = True
+  |otherwise = elem' a xs
+
 
 --pembatas
 
@@ -82,11 +95,12 @@ notElem' x = x
 
 --pembatas
 
-head' x = x
+head' [x:xs] = x
 
 --pembatas
 
-length' x = x
+length' [] = 0
+length' (x:xs) = 1 + (length' xs)
 
 --pembatas
 
@@ -98,7 +112,7 @@ last' x = x
 
 --pembatas
 
-tail' x = x
+tail' (x:xs) = xs
 
 --pembatas
 
