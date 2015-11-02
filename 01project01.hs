@@ -1,7 +1,7 @@
 module One where 
 
 import Data.List
--- I'm so sorry before if i didn't add ' after the function, it cause i used Heat 
+
 -- 1.a
 
 null' [] = True
