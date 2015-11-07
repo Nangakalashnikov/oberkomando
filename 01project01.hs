@@ -104,7 +104,8 @@ length' (x:xs) = 1 + (length' xs)
 
 --pembatas
 
-reverse' x = x
+reverse' [] = []
+reverse' (a:as) = (reverse' as) ++ a
 
 --pembatas
 
@@ -152,11 +153,14 @@ zip3' x = x
 
 --pembatas
 
-sum' x = x
+sum' [] = 0
+sum' (a:as) = a + (sum' as)
+
 
 --pembatas
 
-product' x = x
+product' [] = 1
+product' (a:as) = a * (product as)
 
 --pembatas
 
@@ -210,7 +214,6 @@ nub' x = x
 
 --pembatas
 
-sort' x = x
 
 --pembatas
 
@@ -238,7 +241,12 @@ intersect' x = x
 
 --pembatas
 
-group' x = x
+group' [] = []
+group' (a:as)
+  | as == [] = [[a]]
+  | otherwise = [a] : (group' as )
+
+
 
 --pembatas
 
