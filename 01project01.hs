@@ -16,7 +16,7 @@ take' x (a:as)
 
 --pembatas
 
-drop x = x
+drop' x = x
 --pembatas
 
 fst' (x,y) = x
