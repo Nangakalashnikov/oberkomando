@@ -16,7 +16,11 @@ take' x (a:as)
 
 --pembatas
 
-drop' x = x
+drop' a [] =[]
+drop' a (x:xs)
+  | a <= 0 = (a:as)
+  | otherwise = drop (x-1) as
+  
 --pembatas
 
 fst' (x,y) = x
